@@ -1,0 +1,43 @@
+.posts{
+    width: 100%;
+    height: 100%;
+    margin: 15px 0px;
+    background-color: rgb(234, 240, 240);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/* .buttons{
+    width:40%;
+    margin:5px 2px;
+    padding:3px;
+    color:white;
+} */
+@media screen and (max-width: 1024px) {
+    .buttons{
+    background-color: pink;
+    font-size: 12px;
+    }
+}
+
+
+    @media screen and (max-width: 9910px) {
+     .buttons{
+        width: 40%;
+        font-size: 8px;
+    }
+}
+    @media screen and (max-width: 767px) {
+        .buttons{
+
+           font-size: 8px;
+       }
+}
+
+
+    @media screen and (max-width: 573px) {
+     .buttons{
+
+
+        font-size: 14px;
+    }
+}
