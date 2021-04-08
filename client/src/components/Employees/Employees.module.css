@@ -1,0 +1,28 @@
+.spinner{
+    display: flex;
+    justify-content: center;
+    margin:20px auto;
+    width:100%
+
+}
+.topButton {
+    position: fixed; 
+    bottom: 20px; 
+    right: 3%;
+    z-index: 99; 
+    border: none; 
+    outline: none;
+    background-color:rgb(186, 174, 174);
+    color: white; 
+    cursor: pointer;
+    padding:13px;
+    border-radius: 50px; 
+    font-size: 18px;
+    opacity: 0.5; 
+    height:50px;
+  }
+  
+  .topButton:hover {
+    background-color: rgb(59, 59, 59); 
+  }
+  
