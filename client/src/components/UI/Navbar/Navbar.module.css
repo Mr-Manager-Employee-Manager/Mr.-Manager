@@ -1,0 +1,22 @@
+.button{
+    text-decoration: none;
+    color: rgba(255,255,255,.5);
+    font-size: large;
+    height:100%;
+    margin-right:10px;
+}
+
+.button:hover{
+    color:white;
+    text-decoration: none;
+}
+
+.auth{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: rgba(255,255,255,.5);
+}
+
+.auth:hover{
+    color:white;
+}
