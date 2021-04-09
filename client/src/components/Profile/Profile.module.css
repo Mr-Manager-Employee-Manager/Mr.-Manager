@@ -1,0 +1,46 @@
+.emp{
+    width: 100%;
+    margin:40px auto;
+    border: 2px solid rgb(238, 238, 238);
+    box-shadow: 0 12px 14px rgb(204, 204, 204);
+    padding: 16px;
+    text-align: center;
+    font-size: large;
+    background-color: #92b8e0;
+}
+.spinner{
+    float: none;
+    display: flex;
+    justify-content: center;
+    margin:100px auto;
+    width:100%
+
+}
+.divs{
+    display:inline-block;
+    background-color: white;
+    color:black;
+    margin:10px 10px;
+    width: 40%;
+    border-radius: 25px;
+    border:2px solid rgb(211, 204, 204);
+}
+/* @media screen and (max-width: 1024px) {
+    .emp{
+        width:60%
+    }
+}
+    
+    
+@media screen and (max-width: 780px) {
+     .emp{
+        width: 70%;
+    }
+}
+    
+    @media screen and (max-width: 573px) {
+     .emp{
+        width: 90%;
+    }
+} */
+
