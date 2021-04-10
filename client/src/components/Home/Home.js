@@ -17,8 +17,8 @@ const Home = (props) => {
     return (
         <div className={classes.head} >
             <div style={{ paddingTop: "150px", textAlign: "center", color: "white", fontSize: "1.2rem" }}>
-                <h1>Attendance Manager</h1>
-                <p> Welcome to Attendance Manager!</p>
+                <h1>Mr. Manager</h1>
+                <p> Welcome to Mr. Manager!</p>
                 <p> One stop destination to log and maintain the attendance of employees and to organize employee's data </p>
                 {homeButton}
             </div>
