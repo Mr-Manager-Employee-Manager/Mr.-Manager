@@ -1,0 +1,48 @@
+.head{
+    text-align: center;
+    margin-top: 75px;
+}
+
+.edit{
+    width: 40%;
+    margin: 25px auto;
+    height: 100%;
+    border: 1px solid rgb(231, 229, 229);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 16px;
+    text-align: center;
+}
+.spinner{
+    float: none;
+    display: flex;
+    justify-content: center;
+    margin:100px auto;
+    width:100%
+
+}
+
+@media screen and (max-width: 1024px) {
+    .edit{
+        width:60%
+    }
+}
+    
+    
+@media screen and (max-width: 780px) {
+     .edit{
+        width: 75%;
+    }
+}
+    
+    @media screen and (max-width: 573px) {
+     .edit{
+        width: 80%;
+    }
+}
+
+.button{
+    margin: 20px 0;
+    /* background-color: #1bc5df;
+    border-color: #1bc5df; */
+}
+
