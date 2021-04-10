@@ -1,3 +1,9 @@
 <h4>Link to the website: https://the-mr-manager.herokuapp.com/
 <h4>Technologies : MERN stack, Passport(Authentication), Heroku(Deployment)</h4>
-<h4>Contributors: Arsh Kashyap, Sarthak Gaba, Akshit Jain</h4>
+
+Mr. Manager is being made for a real factory to convert their database from Excel sheets to an online live web application.
+Mr. Manager provides an ideal platform to store details of company’s employees and log their attendance on daily bases. It also calculates employee’s salary at the end of the month on hourly basis. 
+Businesses can move away from Excel, Access or other home-grown tools and manage employees the right way with Mr. Manager. It allows company to effectively track all information about employees such as Name, Designation, Employee ID, Department, DOB etc.
+This project can attract various types of customers. For example, factory owners can use this to store information and log attendance of their employees and calculate their salaries. Similarly, builders and other contractors can use this for the daily wage workers working under them.
+In the real world, there are a huge number of employees and labourers currently being employed by some company or organisation therefore there is a need to store their data and keep a record of their working hours. Thus our project can have a huge impact here by replacing the primitive and inefficient excel sheets or paper records. 
+Some of the existing solutions are excel sheets, simple paper records, ms access etc., but they are very inefficient and have higher probability of error while handling large data. Also, there is no particular way to organise the data properly and if something goes wrong then the whole database is lost. It also have limited functionality. All these problems can be solved using our model and it can be further modified according to the user’s requirements.
