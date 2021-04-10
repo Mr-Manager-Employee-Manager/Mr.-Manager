@@ -3,7 +3,7 @@
     color: rgba(255,255,255,.5);
     font-size: large;
     height:100%;
-    margin-right:10px;
+    margin-left:0px;
 }
 
 .button:hover{
@@ -20,3 +20,30 @@
 .auth:hover{
     color:white;
 }
+
+.reglog {
+    display: inline;
+    text-decoration: "none";
+}
+
+.theEnd {
+    padding-top: 8px;
+    padding-bottom: 0px;
+}
+
+@media screen and (max-width: 990px) {
+    .reglog {
+      display: block;
+      margin-left: 15px;
+      margin-top: 3px;
+    }
+    .button {
+        display: block;
+        margin-left: 15px;
+        margin-top: 4px;
+        padding: 0px !important;
+    }
+    .theEnd {
+        padding-top: 0px
+    }
+  }

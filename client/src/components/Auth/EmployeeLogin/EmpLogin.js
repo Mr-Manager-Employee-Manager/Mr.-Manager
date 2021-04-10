@@ -38,11 +38,11 @@ const FORM = (props) => {
     <div>
       {alerts}
       <div>
-        <h3 className={classes.head}>Login</h3>
+        <h3 className={classes.head}>Employee Login</h3>
         <Form className={classes.addForm} onSubmit={(e) => login(e)} >
           <Col>
             <Row>
-              <Form.Label>Company ID</Form.Label>
+              <Form.Label>Company's Username</Form.Label>
               <Form.Control required onChange={(event) => setLoginUsername(event.target.value)} />
             </Row>
             <Row>

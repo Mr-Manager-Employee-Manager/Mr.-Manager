@@ -47,7 +47,7 @@ const FORM = (props) => {
         <Form className={classes.RegisterForm} onSubmit={(e) => register(e)} >
           <Col>
             <Row>
-              <Form.Label>username</Form.Label>
+              <Form.Label>Company's Username</Form.Label>
               <Form.Control required onChange={(event) => setRegisterUsername(event.target.value)} />
             </Row>
             <Row>

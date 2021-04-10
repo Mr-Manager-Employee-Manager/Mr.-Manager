@@ -19,10 +19,10 @@ const navbar = (props) => {
 
     let authStatus = (
         <div style={{ fontSize: "1.2rem" }}>
-            <Nav style={{ "display": "inline", marginRight: "20px", textDecoration: "none" }}>
-                <Link style={{ textDecoration: "none" }} to='/login' className={classes.auth}>Log in</Link>
+            <Nav className = {classes.reglog} style = {{marginRight: "12px"}}>
+                <Link style={{ textDecoration: "none" }} to='/login' className={classes.auth}>Login</Link>
             </Nav>
-            <Nav style={{ "display": "inline", textDecoration: "none" }}>
+            <Nav className = {classes.reglog}>
                 <Link style={{ textDecoration: "none" }} to='/register' className={classes.auth}>Register</Link>
             </Nav>
         </div>
@@ -34,7 +34,7 @@ const navbar = (props) => {
             </Nav.Link>
         )
     }
-
+    //navbar component
     return (
         <div style={{ marginBottom: "70px" }}>
             <Navbar style={{ backgroundColor: "#283747" }} fixed="top" collapseOnSelect expand="lg" variant="dark">
@@ -45,15 +45,15 @@ const navbar = (props) => {
                     className="d-inline-block align-top"
                     alt="React Bootstrap logo"
                 />
-                <Link to='/' style={{ textDecoration: "none", color: "white", fontSize: "25px", margin: "0 20px" }}>Attendance Manager</Link>
+                <Link to='/' style={{ textDecoration: "none", color: "white", fontSize: "25px", margin: "0 12px" }}>Mr. Manager</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <Navbar.Collapse id="responsive-navbar-nav" style={{padding:"0px"}}>
                     <Nav className="mr-auto">
-                        {localStorage.getItem('isAdmin') === "true" ? <Nav.Link><Link style={{ margin: "0 15px" }} to='/add' className={classes.button}>Add Employee</Link></Nav.Link> : null}
-                        <Nav.Link><Link style={{ margin: "0 15px" }} to='/employees' className={classes.button} >View Employees</Link></Nav.Link>
+                        {localStorage.getItem('isAdmin') === "true" ? <Nav.Link><Link style={{ margin: "0 15px", padding: "0px" }} to='/add' className={classes.button}>Add Employee</Link></Nav.Link> : null}
+                        <Nav.Link className = {localStorage.getItem('isAdmin') ? classes.theEnd : null} ><Link style={{ margin: "0 15px", padding: "0px" }} to='/employees' className={classes.button} >View Employees</Link></Nav.Link>
                     </Nav>
-                    <Nav.Link className={classes.auth}>
-                        <Link to='/about' className={classes.button}>Developers</Link>
+                    <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
+                        <Link to='/about' className = {classes.button}>Developers</Link>
                     </Nav.Link>
                     {authStatus}
 

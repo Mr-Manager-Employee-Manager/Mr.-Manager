@@ -70,7 +70,7 @@ if(process.env.NODE_ENV==='production'){
 	});
 }
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => app.listen(PORT, () => console.log('server running on port:' + PORT)))
     .catch((error) => console.log("Something fishy" + error.message));
 mongoose.set('useFindAndModify', false);
