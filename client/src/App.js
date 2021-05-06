@@ -48,12 +48,11 @@ const App = () => {
         else {
             routes = (
                 <Switch>
-                    <Route exact path='/' component={Home} />
+                    {/* <Route exact path='/' component={Home} /> */}
                     <Route exact path="/about" component={About} />
-                    <Route exact path='/employees' component={Employees} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
-                    <Redirect to='/' />
+                    <Redirect to={'/employees/' + localStorage.getItem('username')}  />
                 </Switch>
             );
         }

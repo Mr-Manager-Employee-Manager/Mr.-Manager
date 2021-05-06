@@ -12,6 +12,7 @@ const navbar = (props) => {
         axios.get('/logout').then(() => {
             localStorage.removeItem('username');
             localStorage.removeItem('isAdmin');
+            localStorage.removeItem('empID');
             console.log("logged out");
             props.history.push('/');
         })
@@ -50,11 +51,11 @@ const navbar = (props) => {
                 <Navbar.Collapse id="responsive-navbar-nav" style={{padding:"0px"}}>
                     <Nav className="mr-auto">
                         {localStorage.getItem('isAdmin') === "true" ? <Nav.Link><Link style={{ margin: "0 15px", padding: "0px" }} to='/add' className={classes.button}>Add Employee</Link></Nav.Link> : null}
-                        <Nav.Link className = {localStorage.getItem('isAdmin') ? classes.theEnd : null} ><Link style={{ margin: "0 15px", padding: "0px" }} to='/employees' className={classes.button} >View Employees</Link></Nav.Link>
+                        {localStorage.getItem('isAdmin') === "true" ? <Nav.Link className = {localStorage.getItem('isAdmin') ? classes.theEnd : null} ><Link style={{ margin: "0 15px", padding: "0px" }} to='/employees' className={classes.button} >View Employees</Link></Nav.Link> : null }
                     </Nav>
-                    <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
+                    {/* <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
                         <Link to='/about' className = {classes.button}>Developers</Link>
-                    </Nav.Link>
+                    </Nav.Link> */}
                     {authStatus}
 
                 </Navbar.Collapse>

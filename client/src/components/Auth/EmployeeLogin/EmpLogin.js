@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom';
 
 const FORM = (props) => {
   const [loginUsername, setLoginUsername] = useState("");
+  const [empID, setEmpID] = useState("");
   const [alerts, setAlerts] = useState(null);
   const login = (e) => {
     e.preventDefault();
@@ -18,12 +19,16 @@ const FORM = (props) => {
       method: "POST",
       data: {
         username: loginUsername,
+        empCd: empID
       },
       withCredentials: true,
       url: "/empLogin",
     }).then((res) => {
+      console.log(res.data);
+      console.log(res.data[0].username);
       localStorage.setItem('username', res.data);
-      props.history.push({ pathname: '/employees', data: loginUsername + " is a trusted company!" });
+      localStorage.setItem('empID', empID);
+      props.history.push({ pathname: '/employees/' + res.data, data: loginUsername + " is a trusted company!" });
     })
       .catch(err => {
           console.log(err);
@@ -44,6 +49,10 @@ const FORM = (props) => {
             <Row>
               <Form.Label>Company's Username</Form.Label>
               <Form.Control required onChange={(event) => setLoginUsername(event.target.value)} />
+            </Row>
+            <Row>
+              <Form.Label>Employee's ID</Form.Label>
+              <Form.Control required onChange={(event) => setEmpID(event.target.value)} />
             </Row>
             <Row>
               <Button variant="success" type="submit" block className={classes.button}>
