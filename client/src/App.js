@@ -13,6 +13,7 @@ import Profile from './components/Profile/Profile';
 import Alert from 'react-bootstrap/Alert';
 import About from './components/About us/About';
 import EmpLogin from './components/Auth/EmployeeLogin/EmpLogin';
+import Leave from './components/Leave/Leave';
 
 const App = () => {
     const [show, setShow] = useState(true);
@@ -52,6 +53,7 @@ const App = () => {
                     <Route exact path="/about" component={About} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
+                    <Route exact path='/:id/leave' component={Leave} />
                     <Redirect to={'/employees/' + localStorage.getItem('username')}  />
                 </Switch>
             );

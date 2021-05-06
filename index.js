@@ -12,6 +12,7 @@ import bcrypt from 'bcryptjs';
 import employeeRoutes from './routes/Employee.js';
 import attendanceRoutes from './routes/Attendance.js';
 import userRoutes from './routes/user.js';
+import leaveRoutes from './routes/leave.js';
 
 import session from 'express-session';
 import passport from 'passport';
@@ -56,6 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/employees', employeeRoutes);
 app.use('/employees/attendance', attendanceRoutes);
 app.use('/', userRoutes);
+app.use('/', leaveRoutes);
 
 
 const CONNECTION_URL = process.env.ATLAS_URI;
