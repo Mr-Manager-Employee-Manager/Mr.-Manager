@@ -53,13 +53,15 @@ const Log = (props) => {
         event.preventDefault();
         let curDate = new Date(selectedDate).toString();
         const data = {
-            "year": +curDate.slice(11, 15),
-            "month": +monthNum(curDate.slice(4, 7)).toString(),
-            "date": +curDate.slice(8, 10),
+            "year": curDate.slice(11, 15),
+            "month": monthNum(curDate.slice(4, 7)).toString(),
+            "date": curDate.slice(8, 10),
         }
         const leaveData = {
-            dateData: data,
-            days: leaveDays
+            "admin": localStorage.getItem('username'),
+            "empCd": localStorage.getItem('empID'),
+            "date": data,
+            "days": leaveDays
         }
         // const arr = new Array();
         // for (let i = 1; i <= leaveDays; i++) {
@@ -77,22 +79,6 @@ const Log = (props) => {
         // console.log(arr);
         leaveRequest(leaveData);
     }
-    // const initializeDate = (data) => {
-    //     setLoading(false);
-    // }
-    let counter, table = null, table2 = null;
-
-    // useEffect(() => {
-    //     let curDate = new Date(selectedDate).toString();
-    //     const data = {
-    //         "year": curDate.slice(11, 15),
-    //         "month": monthNum(curDate.slice(4, 7)).toString(),
-    //         "date": curDate.slice(8, 10),
-    //     }
-    //     getAttendance(data, props.match.params.id, initializeDate,props);
-    //     // eslint-disable-next-line
-    // }, [selectedDate]);
-
     const handleDateChange = (date) => {
         setSelectedDate(date);
     }
