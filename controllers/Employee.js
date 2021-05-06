@@ -24,11 +24,7 @@ export const filterEmployee = (req, res) => {
         })
         .catch(err => res.status(400).json('Error:' + err));
 }
-export const getLeaves=(req,res)=>{
-    console.log('reached here');
-    console.log(req.params);
-    res.status(200).json('successful');
-}
+
 
 export const updateEmployee = (req, res) => {
     const { id } = req.params;

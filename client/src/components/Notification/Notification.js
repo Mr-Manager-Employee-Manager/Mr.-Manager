@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import { withRouter } from 'react-router';
+import Leave from './Leaves/Leave';
 
 const Notification = (props) => {
     const [leaves, setLeaves] = useState([]);
@@ -9,7 +10,6 @@ const Notification = (props) => {
     useEffect(() => {
         axios.get('leaves/'+localStorage.getItem('username')).then(res => {
             setLoading(false);
-            console.log(res);
             setLeaves(res);
 
         })
@@ -21,6 +21,9 @@ const Notification = (props) => {
 
 
     }, [])
+    const renderingLeaves=leaves.map(()=>(
+        <Leave />
+    ));
     return (
         <div>
             {console.log(leaves)}

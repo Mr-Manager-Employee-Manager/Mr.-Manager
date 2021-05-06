@@ -8,3 +8,11 @@ export const leaveRequest = (req, res) => {
         .then(() => res.json(leaveReq))
         .catch(err => res.status(400).json('Error: ' + err));
 }
+export const getLeaves=(req,res)=>{
+    Leave.find(req.params).then(leaves=>{
+        res.status(200).json(leaves);
+    }).catch(err=>{
+        console.log(err);
+    })
+    
+}
