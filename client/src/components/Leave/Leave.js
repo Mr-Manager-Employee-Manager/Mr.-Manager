@@ -7,6 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import DateFnsUtils from '@date-io/date-fns';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
+import Badge from 'react-bootstrap/Badge';
+import { MDBInput } from 'mdbreact';
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker
@@ -115,9 +117,14 @@ const Log = (props) => {
                     </Grid>
                 </MuiPickersUtilsProvider>
                 <hr />
-                <Row>
-                    <input style={{ margin: "20px 40%", width: "40%" }} type="number" min="1" max="10" value={leaveDays} onChange={(event) => setLeaveDays(event.target.value)} />
-                </Row>
+                <div>
+                    <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px"}}>Number of Days</span>
+                    <input style={{ margin: "20px 48%", width: "4%" }} type="number" min="1" max="10" value={leaveDays} onChange={(event) => setLeaveDays(event.target.value)} />
+                </div>
+                <div style={{ width: "30%", margin: "0 35%" }}>
+                    <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px"}}>Reason</span>
+                    <MDBInput style={{marginTop: "3px"}} type="textarea" rows="5" />
+                </div>
                 <Row>
                     <Button variant="success" type="submit" block style={{ margin: "20px 40%", width: "60%" }}>
                         Submit
