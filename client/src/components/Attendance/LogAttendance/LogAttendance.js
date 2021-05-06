@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import 'date-fns';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import DateFnsUtils from '@date-io/date-fns';
@@ -116,7 +116,7 @@ const Log = (props) => {
             "month": monthNum(curDate.slice(4, 7)).toString(),
             "date": curDate.slice(8, 10),
         }
-        getAttendance(data, props.match.params.id, initializeDate,props);
+        getAttendance(data, props.match.params.id, initializeDate, props);
         // eslint-disable-next-line
     }, [selectedDate]);
 
@@ -141,9 +141,9 @@ const Log = (props) => {
             "calendarOut": undefined
         };
         logAttendance(data, props.match.params.id);
-        props.history.push({pathname:'/employees',data:"Attendance Logged!"});
+        props.history.push({ pathname: '/employees', data: "Attendance Logged!" });
     }
-    const [alerts,setAlerts]=useState(null);
+    const [alerts, setAlerts] = useState(null);
     const checkOutHandler = (event) => {
         event.preventDefault();
         const calendar = selectedDate.toString();
@@ -168,11 +168,11 @@ const Log = (props) => {
         let totalMinutes = (outTime - inTime);
         if (totalMinutes >= 0) {
             logAttendance(data, props.match.params.id);
-            props.history.push({pathname:'/employees',data:"Attendance Logged!"});
+            props.history.push({ pathname: '/employees', data: "Attendance Logged!" });
         }
-        else
-            {   
-                setAlerts(<Alert variant="danger">Out Time must be greater than In Time !</Alert>);}
+        else {
+            setAlerts(<Alert variant="danger">Out Time must be greater than In Time !</Alert>);
+        }
 
     }
 
@@ -212,47 +212,47 @@ const Log = (props) => {
     initializeTable();
     return (
         <div>
-            {alerts}
-            <Form style={{ marginTop: "50px", marginBottom: "20px" }}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                        <KeyboardDatePicker
-                            //disableToolbar
-                            showTodayButton
-                            variant='dialog'
-                            format='MM/dd/yyy'
-                            margin='normal'
-                            id='date-picker'
-                            label='Date'
-                            value={selectedDate}
-                            onChange={handleDateChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change date'
-                            }}
-                        />
-                    </Grid>
-                </MuiPickersUtilsProvider>
-                <hr />
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                        <KeyboardTimePicker
-                            margin='normal'
-                            id='time-picker'
-                            label='Time'
-                            value={selectedDate}
-                            onChange={handleDateChange}
-                            //ampm={false}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change date'
-                            }}
-                        />
-                    </Grid>
-                </MuiPickersUtilsProvider>
-                <hr />
-                {buttons}
-            </Form>
-            {table2}
+                {alerts}
+                <Form style={{ marginTop: "50px", marginBottom: "20px" }}>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid container justify="space-around">
+                            <KeyboardDatePicker
+                                //disableToolbar
+                                showTodayButton
+                                variant='dialog'
+                                format='MM/dd/yyy'
+                                margin='normal'
+                                id='date-picker'
+                                label='Date'
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date'
+                                }}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+                    <hr />
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid container justify="space-around">
+                            <KeyboardTimePicker
+                                margin='normal'
+                                id='time-picker'
+                                label='Time'
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                                //ampm={false}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date'
+                                }}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+                    <hr />
+                    {buttons}
+                </Form>
+                {table2}
         </div>
     )
 }
-export default withRouter(Log);  
+export default withRouter(Log);

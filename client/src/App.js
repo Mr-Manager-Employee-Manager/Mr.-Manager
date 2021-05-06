@@ -13,6 +13,7 @@ import Profile from './components/Profile/Profile';
 import Alert from 'react-bootstrap/Alert';
 import About from './components/About us/About';
 import EmpLogin from './components/Auth/EmployeeLogin/EmpLogin';
+import Notification from './components/Notification/Notification';
 
 const App = () => {
     const [show, setShow] = useState(true);
@@ -38,6 +39,7 @@ const App = () => {
                     <Route exact path="/about" component={About} />
                     <Route exact path='/employees' component={Employees} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
+                    <Route exact path="/leaves" component={Notification} />
                     <Route exact path='/employees/:id' component={Profile} />
                     <Route exact path='/:id/attendance/log' component={LogAttendance} />
                     <Route exact path='/add' component={Form} />
