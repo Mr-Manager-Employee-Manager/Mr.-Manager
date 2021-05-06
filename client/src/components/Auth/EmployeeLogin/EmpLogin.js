@@ -24,9 +24,7 @@ const FORM = (props) => {
       withCredentials: true,
       url: "/empLogin",
     }).then((res) => {
-      console.log(res.data);
-      console.log(res.data[0].username);
-      localStorage.setItem('username', res.data);
+      localStorage.setItem('username', loginUsername);
       localStorage.setItem('empID', empID);
       props.history.push({ pathname: '/employees/' + res.data, data: loginUsername + " is a trusted company!" });
     })

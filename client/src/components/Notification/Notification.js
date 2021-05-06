@@ -21,9 +21,9 @@ const Notification = (props) => {
 
 
     }, [])
-    const renderingLeaves=leaves.map(()=>(
-        <Leave />
-    ));
+    // const renderingLeaves=leaves.map(()=>(
+    //     <Leave />
+    // ));
     return (
         <div>
             {console.log(leaves)}
