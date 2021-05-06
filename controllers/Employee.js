@@ -1,6 +1,5 @@
 import Employee from '../models/Employee.js';
 
-
 export const createEmployee = (req, res) => {
     const employee = req.body;
     const newEmployee = new Employee(employee);
@@ -24,6 +23,11 @@ export const filterEmployee = (req, res) => {
             res.status(200).json(employee);
         })
         .catch(err => res.status(400).json('Error:' + err));
+}
+export const getLeaves=(req,res)=>{
+    console.log('reached here');
+    console.log(req.params);
+    res.status(200).json('successful');
 }
 
 export const updateEmployee = (req, res) => {

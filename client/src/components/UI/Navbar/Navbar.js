@@ -56,6 +56,9 @@ const navbar = (props) => {
                     {/* <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
                         <Link to='/about' className = {classes.button}>Developers</Link>
                     </Nav.Link> */}
+                    <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
+                        <Link to='/leaves' className = {classes.button}>Leaves</Link>
+                    </Nav.Link>
                     {authStatus}
 
                 </Navbar.Collapse>
