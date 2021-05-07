@@ -15,7 +15,7 @@ const Notification = (props) => {
             .catch(error => {
                 props.history.push('/');
             })
-    }, [leaves])
+    }, [])
     const renderingLeaves = leaves.map((el, id) => {
         return el.status == "pending" ? <Leave setLeaves = {() => setLeaves()} data={el} key={id} /> : null;
     }
