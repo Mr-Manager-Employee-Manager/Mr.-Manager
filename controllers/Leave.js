@@ -9,9 +9,9 @@ export const leaveRequest = (req, res) => {
         .then(() => res.status(200).json(leaveReq))
         .catch(err => res.status(400).json('Error: ' + err));
 }
-export const getLeaves=(req,res)=>{
+export const getLeaves = (req, res) => {
     console.log(req.params);
-    Leave.find({"admin":req.params.id}).then(leaves=>{
+    Leave.find({ "admin": req.params.id }).then(leaves => {
         res.status(200).json(leaves);
     }).catch(err => {
         console.log(err);
@@ -26,6 +26,12 @@ export const getLeaves=(req,res)=>{
 export const markLeave = (req, res) => {
     const noOfDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const leaveDataOrg = req.body;
+    leaveDataOrg.status = "accepted";
+    Leave.findByIdAndUpdate(leaveDataOrg._id,leaveDataOrg)
+        .then((leave) => {
+            console.log("successfully updated status (leave)");
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
     const temp = {
         "username": leaveDataOrg.admin,
         "empCd": leaveDataOrg.empCd
@@ -59,7 +65,7 @@ export const markLeave = (req, res) => {
                     };
                     let month = new Array(13);
                     month[+leaveData.date.month] = {
-                        value: ''  + leaveData.date.month,
+                        value: '' + leaveData.date.month,
                         date: date
                     };
                     let year = {

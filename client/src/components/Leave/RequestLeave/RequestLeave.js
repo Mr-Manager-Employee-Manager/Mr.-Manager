@@ -16,8 +16,7 @@ import {
 import { leaveRequest, markLeave } from '../../../api/leave';
 import Alert from 'react-bootstrap/Alert';
 
-const Log = (props) => {
-    console.log(props);
+const RequestLeave = (props) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [leaveDays, setLeaveDays] = useState(1);
     const [reason,setReason]=useState("");
@@ -67,7 +66,8 @@ const Log = (props) => {
             "id":props.match.params.id,
             "days": leaveDays,
             "reason": reason,
-            "name":props.location.res.data.name
+            "name":props.location.res.data.name,
+            "status": "pending"
         }
         console.log("in");
         // console.log(leaveData);
@@ -141,4 +141,4 @@ const Log = (props) => {
         </div>
     )
 }
-export default withRouter(Log);
+export default withRouter(RequestLeave);
