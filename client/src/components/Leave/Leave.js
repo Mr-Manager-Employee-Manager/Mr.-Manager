@@ -21,6 +21,7 @@ const Log = (props) => {
     console.log(props);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [leaveDays, setLeaveDays] = useState(1);
+    const [reason,setReason]=useState("");
     const [loading, setLoading] = useState(true);
 
     const monthNum = (month) => {
@@ -65,7 +66,8 @@ const Log = (props) => {
             "empCd": localStorage.getItem('empID'),
             "date": data,
             "id":props.match.params.id,
-            "days": leaveDays
+            "days": leaveDays,
+            "reason": reason
         }
         // const arr = new Array();
         // for (let i = 1; i <= leaveDays; i++) {
@@ -125,7 +127,7 @@ const Log = (props) => {
                 </div>
                 <div style={{ width: "30%", margin: "0 35%" }}>
                     <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px"}}>Reason</span>
-                    <MDBInput style={{marginTop: "3px"}} type="textarea" rows="5" />
+                    <MDBInput style={{marginTop: "3px"}} type="textarea" rows="5" onChange={(e)=>setReason(e.target.value)} />
                 </div>
                 <Row>
                     <Button variant="success" type="submit" block style={{ margin: "20px 40%", width: "60%" }}>
