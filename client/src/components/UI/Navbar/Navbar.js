@@ -17,7 +17,7 @@ const NAvbar = (props) => {
             {
                 if(res.data[i].status==="pending") cnt++;
             }
-            setLeaves(cnt);
+            setLeaves(cnt+" Leaves");
         })
             .catch(error => {
                 props.history.push('/');
@@ -73,7 +73,7 @@ const NAvbar = (props) => {
                         <Link to='/about' className = {classes.button}>Developers</Link>
                     </Nav.Link> */}
                     {localStorage.getItem('isAdmin')==='true' ? <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
-                        <Link to={{pathname:'/leaves', setNo:setLeaves}} onClick={()=>setLeaves("")} className = {classes.button} ><i  class="fas fa-bell" alt="Notifications"></i><Badge style={{marginLeft:"5px"}} variant="info">{leaves} Leaves</Badge></Link>
+                        <Link to={{pathname:'/leaves', setNo:setLeaves}} onClick={()=>setLeaves("")} className = {classes.button} ><i  class="fas fa-bell" alt="Notifications"></i><Badge style={{marginLeft:"5px"}} variant="info">{leaves}</Badge></Link>
                     </Nav.Link>:null}
                     {authStatus}
 
