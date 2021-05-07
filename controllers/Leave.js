@@ -3,14 +3,12 @@ import Employee from '../models/Employee.js';
 
 export const leaveRequest = (req, res) => {
     const leaveReq = req.body;
-    console.log(leaveReq);
     const newLeaveRequest = new Leave(leaveReq);
     newLeaveRequest.save()
         .then(() => res.status(200).json(leaveReq))
         .catch(err => res.status(400).json('Error: ' + err));
 }
 export const getLeaves = (req, res) => {
-    console.log(req.params);
     Leave.find({ "admin": req.params.id }).then(leaves => {
         res.status(200).json(leaves);
     }).catch(err => {
@@ -30,6 +28,17 @@ export const declineLeave = (req, res) => {
         .then((leave) => {
         })
         .catch(err => res.status(400).json('Error: ' + err));
+}
+
+export const checkIfExists = (req,res) => {
+    const data = req.body;
+    Leave.find(data)
+        .then((leave) => {
+            if(leave.length === 0)
+                return res.status(200).json("Doesn't Exist");
+            else
+                return res.status(200).json("Exists");
+        })
 }
 
 
@@ -63,7 +72,6 @@ export const markLeave = (req, res) => {
                 }
                 const leaveData = await { ...leaveDataOrg };
                 leaveData.date = await tempData;
-                // console.log(leaveData)
                 let found = employee.attendance.find(year => {
                     return +year.value === leaveData.date.year
                 });
@@ -102,7 +110,6 @@ export const markLeave = (req, res) => {
                 }
             }
             Employee.findByIdAndUpdate(employee._id, employee)
-                .then(console.log("marked"))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error: ' + err));

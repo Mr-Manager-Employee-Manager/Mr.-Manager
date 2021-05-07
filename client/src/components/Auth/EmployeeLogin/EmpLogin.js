@@ -32,6 +32,7 @@ const FORM = (props) => {
     }).then((res) => {
       localStorage.setItem('username', loginUsername);
       localStorage.setItem('empID', empID);
+      localStorage.setItem('emp_id', res.data);
       props.history.push({ pathname: '/employees/' + res.data, data: loginUsername + " is a trusted company!" });
     })
       .catch(err => {

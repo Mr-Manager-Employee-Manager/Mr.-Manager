@@ -140,8 +140,7 @@ const Log = (props) => {
             "calendarIn": new Date(selectedDate),
             "calendarOut": undefined
         };
-        logAttendance(data, props.match.params.id);
-        props.history.push({ pathname: '/employees', data: "Attendance Logged!" });
+        logAttendance(data, props.match.params.id,props);
     }
     const [alerts, setAlerts] = useState(null);
     const checkOutHandler = (event) => {
@@ -167,8 +166,7 @@ const Log = (props) => {
         let outTime = (+data.outTime.hour) * 60 + (+data.outTime.minute)
         let totalMinutes = (outTime - inTime);
         if (totalMinutes >= 0) {
-            logAttendance(data, props.match.params.id);
-            props.history.push({ pathname: '/employees', data: "Attendance Logged!" });
+            logAttendance(data, props.match.params.id,props);
         }
         else {
             setAlerts(<Alert variant="danger">Out Time must be greater than In Time !</Alert>);

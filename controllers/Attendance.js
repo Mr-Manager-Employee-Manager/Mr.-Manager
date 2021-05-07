@@ -48,6 +48,8 @@ export const logAttendance = (req, res) => {
                     }
                     let totalMinutes = (outTime - inTime);
                     if (found.month[+req.body.month].date[+req.body.date]) {
+                        if(found.month[+req.body.month].date[+req.body.date].isLeave)
+                            return res.status(400).json('Employee is on leave this day');
                         let arr = found.month[+req.body.month].date[+req.body.date].outTime;
                         if (arr[arr.length - 1] === null) {
                             found.month[+req.body.month].date[+req.body.date].outTime[arr.length - 1] = req.body.outTime;

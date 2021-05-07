@@ -23,7 +23,7 @@ const Post = (props) => {
         axios.get('/employees/' + props.match.params.id).then(res => {
             setLoading(false);
             if (!localStorage.getItem('isAdmin'))
-                localStorage.setItem('empName', res.data.name);
+                localStorage.setItem('empName',res.data.name);
             setEmployees(res.data);
 
         })

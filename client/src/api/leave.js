@@ -22,3 +22,13 @@ export const declineLeave = (data) => {
         console.log("leave declined");
     })
 }
+
+export const checkIfExists = (leaveData,sendRequest) => {
+    const data = {
+        date: leaveData.date
+    }
+    axios.post(url + 'checkIfExists',data).then((res) =>{
+        sendRequest(res.data,leaveData);
+    })
+    .catch(err => {});
+}

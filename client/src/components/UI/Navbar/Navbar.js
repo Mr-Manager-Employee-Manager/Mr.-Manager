@@ -29,7 +29,7 @@ const NAvbar = (props) => {
             localStorage.removeItem('isAdmin');
             localStorage.removeItem('empID');
             localStorage.removeItem('empName');
-            console.log("logged out");
+            localStorage.removeItem('emp_id');
             props.history.push('/');
         })
     }

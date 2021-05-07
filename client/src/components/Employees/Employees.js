@@ -48,9 +48,11 @@ const Posts = (props) => {
     const filterModal = <FilterForm filterEmployee={(data) => filterEmployeeHandler(data)} />
     const SpinnerClass = loading === true ? classes.spinner : null;
     let alerts = null;
-    if (props.location.data) {
+    if (props.location.data === "Attendance Logged!") {
         alerts = <Alert show={show} variant="success" onClose={() => setShow(false)} dismissible >{props.location.data}</Alert>
     }
+    else if(props.location.data === "Employee is on leave this day")
+        alerts = <Alert show={show} variant="danger" onClose={() => setShow(false)} dismissible >{props.location.data}</Alert>
     return (
         <div style={{ margin: "0" }}>
             {alerts}
