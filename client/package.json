@@ -13,6 +13,7 @@
     "bootstrap": "^4.5.3",
     "date-fns": "^2.0.0-beta.5",
     "dotenv": "^8.2.0",
+    "mdbreact": "^5.0.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-calendar": "^3.3.0",
