@@ -66,7 +66,8 @@ const Log = (props) => {
             "date": data,
             "id":props.match.params.id,
             "days": leaveDays,
-            "reason": reason
+            "reason": reason,
+            "name":props.location.res.data.name
         }
         console.log("in");
         // console.log(leaveData);

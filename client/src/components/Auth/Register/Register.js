@@ -24,7 +24,7 @@ const FORM = (props) => {
     }).then((res) => {
       console.log(res);
       localStorage.setItem("username", registerUsername);
-      localStorage.setItem("isAdmin", "false");
+      localStorage.setItem("isAdmin", "true");
       props.history.push({ pathname: '/employees', data: "Welcome " + registerUsername + " !" })
     })
     .catch((err) => {
