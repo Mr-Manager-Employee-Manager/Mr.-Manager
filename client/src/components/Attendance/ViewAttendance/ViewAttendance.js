@@ -16,6 +16,7 @@ import CardColumns from 'react-bootstrap/CardColumns'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 import Row from 'react-bootstrap/Row';
+import Alert from 'react-bootstrap/Alert';
 
 const View = (props) => {
 
@@ -23,7 +24,7 @@ const View = (props) => {
     const [monthData, setMonthData] = useState();
     const [employee, setEmployee] = useState('Employee');
     let totalMinutes = 0;
-
+    const noOfDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const monthNum = (month) => {
         if (month === "Jan")
             return 1;
@@ -63,16 +64,23 @@ const View = (props) => {
             setEmployee(data[0].name);
             setMonthData(data[1]);
         }
-        getMonthAttendance(data, props.match.params.id, initializeDate,props);
+        getMonthAttendance(data, props.match.params.id, initializeDate, props);
         // eslint-disable-next-line 
     }, [selectedDate, props.match.params.id])
 
     let table2 = new Array(32);
     totalMinutes = 0;
     if (monthData && monthData.date) {
-        for (let i = 1; i <= 31; i++) {
+        for (let i = 1; i <= noOfDays[+monthData.value]; i++) {
             let counter, table = null, inTimeArr = null, outTimeArr = null;
             counter = 0;
+            if (monthData.date[i] && monthData.date[i].isLeave) {
+                table2[i] = (<div style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: "25px", fontWeight: "400" }}>Date: {i}</span>
+                    <Alert variant="info"><span style={{fontWeight:"600"}}>On Leave</span></Alert>
+                </div>)
+                continue;
+            }
             if (monthData.date[i]) {
                 totalMinutes += monthData.date[i].totalMinutes;
                 inTimeArr = monthData.date[i].inTime;
@@ -125,7 +133,7 @@ const View = (props) => {
             )
         }
     }
-    const tables = table2.map((el, id) => <Card style={{backgroundColor: "white"}} key={id}>{el}</Card>)
+    const tables = table2.map((el, id) => <Card style={{ backgroundColor: "white" }} key={id}>{el}</Card>)
     let outputTable = <CardColumns>{tables}</CardColumns>
     let output = <Row className={classes.spinner} style={{ margin: "250px 0" }}><Loader
         type="Circles"
@@ -153,7 +161,7 @@ const View = (props) => {
                         />
                     </Grid>
                 </MuiPickersUtilsProvider>
-                <h3 style={{ textAlign: "center", margin: "20px" }}>Total Hours: {Math.round(+totalMinutes/60)}</h3>
+                <h3 style={{ textAlign: "center", margin: "20px" }}>Total Hours: {Math.round(+totalMinutes / 60)}</h3>
                 {outputTable}
                 <Button className={classes.topButton} href="#top"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
@@ -164,7 +172,7 @@ const View = (props) => {
 
     return (
         <div>
-            { output }
+            { output}
         </div>
     );
 }

@@ -55,7 +55,7 @@ const RequestLeave = (props) => {
 
     const sendRequest = (data,leaveData) => {
         console.log(data);
-        if (data == "Exists") {
+        if (data === "Exists") {
             toast.warn('Leave already requested for this day', {
                 position: "top-right",
                 autoClose: 5000,
