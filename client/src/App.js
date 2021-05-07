@@ -13,7 +13,7 @@ import Profile from './components/Profile/Profile';
 import Alert from 'react-bootstrap/Alert';
 import About from './components/About us/About';
 import EmpLogin from './components/Auth/EmployeeLogin/EmpLogin';
-import Leave from './components/Leave/Leave';
+import Leave from './components/Leave/RequestLeave/RequestLeave';
 import Notification from './components/Notification/Notification';
 
 const App = () => {

@@ -25,7 +25,8 @@ export const logAttendance = (req, res) => {
                     outTime: [req.body.outTime],
                     totalMinutes: totalMinutes,
                     calendarIn: req.body.calendarIn,
-                    calendarOut: req.body.calendarOut
+                    calendarOut: req.body.calendarOut,
+                    "isLeave": false
                 };
                 let month = new Array(13);
                 month[+req.body.month] = {
@@ -69,7 +70,8 @@ export const logAttendance = (req, res) => {
                             outTime: [req.body.outTime],
                             totalMinutes: totalMinutes,
                             calendarIn: req.body.calendarIn,
-                            calendarOut: req.body.calendarOut
+                            calendarOut: req.body.calendarOut,
+                            "isLeave": false
                         }
                     }
                 }
@@ -86,7 +88,8 @@ export const logAttendance = (req, res) => {
                         outTime: [req.body.outTime],
                         totalMinutes: totalMinutes,
                         calendarIn: req.body.calendarIn,
-                        calendarOut: req.body.calendarOut
+                        calendarOut: req.body.calendarOut,
+                        "isLeave": false
                     };
                     found.month[+req.body.month] = {
                         value: req.body.month,

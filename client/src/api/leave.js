@@ -1,10 +1,17 @@
 import axios from 'axios';
 
-const url = '/leaveRequest';
+const url = '/leave/';
 
 export const leaveRequest = (data) => {
     // console.log("in leave api");
-    axios.post(url,data).then((employee)=>{
-        console.log("leave applied");
+    axios.post(url + 'request',data).then((employee)=>{
+        console.log("leave appliedass");
+    })
+}
+
+export const markLeave = (data) => {
+    // console.log("in leave api");
+    axios.post(url + 'mark',data).then((employee)=>{
+        console.log("leave marked");
     })
 }
