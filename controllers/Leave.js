@@ -23,13 +23,22 @@ export const getLeaves = (req, res) => {
     //     .catch(err => res.status(400).json('Error: ' + err));
 }
 
+export const declineLeave = (req, res) => {
+    const leaveDataOrg = req.body;
+    leaveDataOrg.status = "declined";
+    Leave.findByIdAndUpdate(leaveDataOrg._id, leaveDataOrg)
+        .then((leave) => {
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+}
+
+
 export const markLeave = (req, res) => {
     const noOfDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const leaveDataOrg = req.body;
     leaveDataOrg.status = "accepted";
-    Leave.findByIdAndUpdate(leaveDataOrg._id,leaveDataOrg)
+    Leave.findByIdAndUpdate(leaveDataOrg._id, leaveDataOrg)
         .then((leave) => {
-            console.log("successfully updated status (leave)");
         })
         .catch(err => res.status(400).json('Error: ' + err));
     const temp = {

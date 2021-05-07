@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,6 +12,12 @@ const FORM = (props) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [empID, setEmpID] = useState("");
   const [alerts, setAlerts] = useState(null);
+  useEffect(() => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('empID');
+    localStorage.removeItem('empName');
+  })
   const login = (e) => {
     e.preventDefault();
     console.log("going on");
@@ -29,13 +35,13 @@ const FORM = (props) => {
       props.history.push({ pathname: '/employees/' + res.data, data: loginUsername + " is a trusted company!" });
     })
       .catch(err => {
-          console.log(err);
+        console.log(err);
         setAlerts(<Alert variant="danger">Authentication Unsuccessful!</Alert>)
       });
   };
   const onChangeHandler = () => {
     props.history.push('/login');
-}
+  }
 
   return (
     <div>
@@ -58,7 +64,7 @@ const FORM = (props) => {
               </Button>
             </Row>
             <Row>
-            <Button onClick={onChangeHandler} size="lg" block style={{fontSize:"15px", width: "100%" }}>Switch to Admin Login</Button>
+              <Button onClick={onChangeHandler} size="lg" block style={{ fontSize: "15px", width: "100%" }}>Switch to Admin Login</Button>
             </Row>
           </Col>
         </Form>

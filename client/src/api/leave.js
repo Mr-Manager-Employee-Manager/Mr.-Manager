@@ -15,3 +15,10 @@ export const markLeave = (data) => {
         console.log("leave marked");
     })
 }
+
+export const declineLeave = (data) => {
+    // console.log("in leave api");
+    axios.post(url + 'decline',data).then(() =>{
+        console.log("leave declined");
+    })
+}

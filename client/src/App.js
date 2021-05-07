@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register';
 import Navbar from './components/UI/Navbar/Navbar';
@@ -18,6 +18,9 @@ import Notification from './components/Leave/ShowLeaves/ShowLeaves';
 
 const App = () => {
     const [show, setShow] = useState(true);
+    useEffect(()=>{
+
+    },[localStorage.getItem('isAdmin')] )
     const alerts = <Alert show={show} variant="warning" onClose={() => setShow(false)} dismissible >Join our community for free!</Alert>
     let routes = (
         <div>
@@ -38,6 +41,7 @@ const App = () => {
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path="/about" component={About} />
+                    <Route exact path="/empLogin" render={() => <EmpLogin />} />
                     <Route exact path='/employees' component={Employees} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path="/leaves" component={Notification} />
@@ -53,10 +57,11 @@ const App = () => {
                 <Switch>
                     {/* <Route exact path='/' component={Home} /> */}
                     <Route exact path="/about" component={About} />
+                    <Route exact path="/empLogin" render={() => <EmpLogin />} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
                     <Route exact path='/:id/leave' component={Leave} />
-                    <Redirect to={'/employees/' + localStorage.getItem('username')}  />
+                    <Redirect to='/empLogin' />;
                 </Switch>
             );
         }

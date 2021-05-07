@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import { withRouter } from 'react-router';
-import Leave from './LeaveCard/LeaveCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Leave from './LeaveCard/LeaveCard';
 toast.configure();
 const Notification = (props) => {
     const [leaves, setLeaves] = useState([]);
@@ -21,7 +21,6 @@ const Notification = (props) => {
     const renderingLeaves = leaves.map((el, id) => {
         return el.status === "pending" ? <Leave setLeaves={() => setLeaves()} data={el} key={id} /> : null;
     });
-    
     return (
         <>
             {renderingLeaves}

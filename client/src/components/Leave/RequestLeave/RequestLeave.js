@@ -15,6 +15,8 @@ import {
 
 import { leaveRequest, markLeave } from '../../../api/leave';
 import Alert from 'react-bootstrap/Alert';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RequestLeave = (props) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -50,7 +52,6 @@ const RequestLeave = (props) => {
         else
             return 0;
     }
-    // const noOfDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const requestLeave = (event) => {
         event.preventDefault();
         let curDate = new Date(selectedDate).toString();
@@ -66,41 +67,25 @@ const RequestLeave = (props) => {
             "id":props.match.params.id,
             "days": leaveDays,
             "reason": reason,
-            "name":props.location.res.data.name,
+            "name":localStorage.getItem('empName'),
             "status": "pending"
         }
-        console.log("in");
-        // console.log(leaveData);
-        // const arr = new Array();
-        // for (let i = 1; i <= leaveDays; i++) {
-        //     let tempData = { ...data };
-        //     tempData["date"] += i - 1;
-        //     if (tempData["date"] > noOfDays[tempData["month"]]) {
-        //         tempData["date"] = tempData["date"] - noOfDays[tempData["month"]];
-        //         tempData["month"]++;
-        //     }
-        //     if (tempData["month"] > 12) {
-        //         tempData["month"] = 1;
-        //     }
-        //     arr.push(tempData);
-        // }
-        // console.log(arr);
+        toast.info('Leave Requested', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         leaveRequest(leaveData);
-        // markLeave(leaveData);
     }
     const handleDateChange = (date) => {
         setSelectedDate(date);
     }
-
     // Sat Jan 16 2021 17:48:21 GMT+0530 (India Standard Time)
     const [alerts, setAlerts] = useState(null);
-
-    // let buttons = (
-    //     <div style={{ textAlign: "center", margin: "30px" }}>
-    //         <CircularProgress />
-    //     </div>
-    // );
-
     return (
         <div>
             {alerts}

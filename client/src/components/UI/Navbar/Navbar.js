@@ -13,6 +13,7 @@ const navbar = (props) => {
             localStorage.removeItem('username');
             localStorage.removeItem('isAdmin');
             localStorage.removeItem('empID');
+            localStorage.removeItem('empName');
             console.log("logged out");
             props.history.push('/');
         })
