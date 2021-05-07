@@ -17,10 +17,6 @@ const Notification = (props) => {
             .catch(error => {
                 props.history.push('/');
             })
-
-        // eslint-disable-next-line
-
-
     }, [])
     const renderingLeaves=leaves.map((el,id)=>(
         <Leave data={el} key={id}/>

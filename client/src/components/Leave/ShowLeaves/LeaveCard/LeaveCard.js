@@ -6,9 +6,11 @@ import Col from 'react-bootstrap/Col';
 
 const Leave = (props) => {
     const [empName,setEmpName]=useState("");
-    // useEffect(()=>{[
-        
-    // ]},[])
+
+    const acceptHandler = () => {
+        console.log(props.data);
+    }
+
     return (
         <div>
             <Card>
@@ -24,7 +26,8 @@ const Leave = (props) => {
                      </Card.Text>
                         </Col>
                         <Col>
-                            <Button style={{width:"70%",marginLeft:"29%"}}  variant="outline-success" block>Allow</Button><Button  style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
+                            <Button onClick = {() => acceptHandler()} style={{width:"70%",marginLeft:"29%"}}  variant="outline-success" block>Allow</Button>
+                            <Button  style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
                         </Col>
                     </Row>
                     
