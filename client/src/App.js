@@ -18,9 +18,9 @@ import Notification from './components/Leave/ShowLeaves/ShowLeaves';
 
 const App = () => {
     const [show, setShow] = useState(true);
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[localStorage.getItem('isAdmin')] )
+    }, [localStorage.getItem('isAdmin')])
     const alerts = <Alert show={show} variant="warning" onClose={() => setShow(false)} dismissible >Join our community for free!</Alert>
     let routes = (
         <div>
@@ -61,7 +61,7 @@ const App = () => {
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
                     <Route exact path='/:id/leave' component={Leave} />
-                    <Redirect to='/empLogin' />;
+                    <Redirect to={'/employees/'+localStorage.getItem('emp_id')} />;
                 </Switch>
             );
         }

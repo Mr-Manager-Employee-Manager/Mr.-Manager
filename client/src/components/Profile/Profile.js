@@ -22,7 +22,8 @@ const Post = (props) => {
     useEffect(() => {
         axios.get('/employees/' + props.match.params.id).then(res => {
             setLoading(false);
-           localStorage.setItem('empName',res.data.name);
+            if (!localStorage.getItem('isAdmin'))
+                localStorage.setItem('empName',res.data.name);
             setEmployees(res.data);
 
         })
