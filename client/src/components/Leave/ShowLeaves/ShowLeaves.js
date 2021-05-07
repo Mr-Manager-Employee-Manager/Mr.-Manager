@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import { withRouter } from 'react-router';
-import Leave from './Leaves/Leave';
+import Leave from './LeaveCard/LeaveCard';
 
 const Notification = (props) => {
     const [leaves, setLeaves] = useState([]);

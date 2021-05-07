@@ -7,14 +7,13 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import DateFnsUtils from '@date-io/date-fns';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-import Badge from 'react-bootstrap/Badge';
 import { MDBInput } from 'mdbreact';
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker
 } from '@material-ui/pickers';
 
-import { leaveRequest } from '../../api/leave';
+import { leaveRequest, markLeave } from '../../../api/leave';
 import Alert from 'react-bootstrap/Alert';
 
 const Log = (props) => {
@@ -70,6 +69,8 @@ const Log = (props) => {
             "reason": reason,
             "name":props.location.res.data.name
         }
+        console.log("in");
+        // console.log(leaveData);
         // const arr = new Array();
         // for (let i = 1; i <= leaveDays; i++) {
         //     let tempData = { ...data };
@@ -85,6 +86,7 @@ const Log = (props) => {
         // }
         // console.log(arr);
         leaveRequest(leaveData);
+        // markLeave(leaveData);
     }
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -123,12 +125,12 @@ const Log = (props) => {
                 </MuiPickersUtilsProvider>
                 <hr />
                 <div>
-                    <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px"}}>Number of Days</span>
+                    <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px", margin: "0 44%"}}>Number of Days</span>
                     <input style={{ margin: "20px 48%", width: "4%" }} type="number" min="1" max="10" value={leaveDays} onChange={(event) => setLeaveDays(event.target.value)} />
                 </div>
                 <div style={{ width: "30%", margin: "0 35%" }}>
                     <span style = {{padding: "8px", fontSize: "1.1rem", fontWeight: "500", marginBottom: "150px"}}>Reason</span>
-                    <MDBInput style={{marginTop: "3px"}} type="textarea" rows="5" onChange={(e)=>setReason(e.target.value)} />
+                    <MDBInput value = {reason} onChange = {(event) => setReason(event.target.value)} style={{marginTop: "3px"}} type="textarea" rows="5" />
                 </div>
                 <Row>
                     <Button variant="success" type="submit" block style={{ margin: "20px 40%", width: "60%" }}>
