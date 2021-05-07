@@ -17,10 +17,11 @@ import { leaveRequest, markLeave } from '../../../api/leave';
 import Alert from 'react-bootstrap/Alert';
 
 const Log = (props) => {
+    console.log(props);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [leaveDays, setLeaveDays] = useState(1);
+    const [reason,setReason]=useState("");
     const [loading, setLoading] = useState(true);
-    const [reason, setReason] = useState("");
 
     const monthNum = (month) => {
         if (month === "Jan")
@@ -63,6 +64,7 @@ const Log = (props) => {
             "admin": localStorage.getItem('username'),
             "empCd": localStorage.getItem('empID'),
             "date": data,
+            "id":props.match.params.id,
             "days": leaveDays,
             "reason": reason
         }

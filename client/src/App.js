@@ -14,7 +14,7 @@ import Alert from 'react-bootstrap/Alert';
 import About from './components/About us/About';
 import EmpLogin from './components/Auth/EmployeeLogin/EmpLogin';
 import Leave from './components/Leave/RequestLeave/RequestLeave';
-import Notification from './components/Notification/Notification';
+import Notification from './components/Leave/ShowLeaves/ShowLeaves';
 
 const App = () => {
     const [show, setShow] = useState(true);
