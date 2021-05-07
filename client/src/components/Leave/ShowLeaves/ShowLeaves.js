@@ -8,23 +8,18 @@ const Notification = (props) => {
     const [leaves, setLeaves] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get('leaves/'+localStorage.getItem('username')).then(res => {
+        axios.get('leaves/' + localStorage.getItem('username')).then(res => {
             setLoading(false);
-            console.log(leaves);
             setLeaves(res.data);
-
         })
             .catch(error => {
                 props.history.push('/');
             })
-
-        // eslint-disable-next-line
-
-
-    }, [])
-    const renderingLeaves=leaves.map((el,id)=>(
-        <Leave data={el} key={id}/>
-    ));
+    }, [leaves])
+    const renderingLeaves = leaves.map((el, id) => {
+        return el.status == "pending" ? <Leave setLeaves = {() => setLeaves()} data={el} key={id} /> : null;
+    }
+    );
     return (
         <div>
             {renderingLeaves}

@@ -3,12 +3,16 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { markLeave } from '../../../../api/leave';
 
 const Leave = (props) => {
     const [empName,setEmpName]=useState("");
-    // useEffect(()=>{[
-        
-    // ]},[])
+
+    const acceptHandler = () => {
+        markLeave(props.data);
+        console.log("leave marked yeah");
+    }
+
     return (
         <div>
             <Card>
@@ -24,7 +28,8 @@ const Leave = (props) => {
                      </Card.Text>
                         </Col>
                         <Col>
-                            <Button style={{width:"70%",marginLeft:"29%"}}  variant="outline-success" block>Allow</Button><Button  style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
+                            <Button onClick = {() => acceptHandler()} style={{width:"70%",marginLeft:"29%"}}  variant="outline-success" block>Allow</Button>
+                            <Button  style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
                         </Col>
                     </Row>
                     
