@@ -16,6 +16,7 @@ import { leaveRequest } from '../../api/leave';
 import Alert from 'react-bootstrap/Alert';
 
 const Log = (props) => {
+    console.log(props);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [leaveDays, setLeaveDays] = useState(1);
     const [loading, setLoading] = useState(true);
@@ -61,6 +62,7 @@ const Log = (props) => {
             "admin": localStorage.getItem('username'),
             "empCd": localStorage.getItem('empID'),
             "date": data,
+            "id":props.match.params.id,
             "days": leaveDays
         }
         // const arr = new Array();

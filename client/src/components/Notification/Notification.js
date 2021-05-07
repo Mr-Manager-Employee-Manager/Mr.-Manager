@@ -10,7 +10,8 @@ const Notification = (props) => {
     useEffect(() => {
         axios.get('leaves/'+localStorage.getItem('username')).then(res => {
             setLoading(false);
-            setLeaves(res);
+            console.log(leaves);
+            setLeaves(res.data);
 
         })
             .catch(error => {
@@ -21,12 +22,12 @@ const Notification = (props) => {
 
 
     }, [])
-    // const renderingLeaves=leaves.map(()=>(
-    //     <Leave />
-    // ));
+    const renderingLeaves=leaves.map((el,id)=>(
+        <Leave data={el} key={id}/>
+    ));
     return (
         <div>
-            {console.log(leaves)}
+            {renderingLeaves}
         </div>
     )
 }

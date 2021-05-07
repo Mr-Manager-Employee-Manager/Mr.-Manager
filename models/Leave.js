@@ -8,6 +8,7 @@ const leaveSchema = new mongoose.Schema({
         "month": String,
         "date": String
     },
+    id:String,
     days: Number,
     reason: String
 });
