@@ -23,11 +23,11 @@ const App = () => {
         <div>
             {alerts}
             <Switch>
-                <Route exact path="/login" render={() => <Login />} />
-                <Route exact path="/empLogin" render={() => <EmpLogin />} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/empLogin" component={EmpLogin} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path='/' render={() => <Home />} />
+                <Route exact path='/' component={Home} />
                 <Redirect to='/login' />;
             </Switch>
         </div>

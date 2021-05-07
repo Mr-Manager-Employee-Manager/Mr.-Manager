@@ -30,6 +30,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "react-notifications": "^1.7.2"
+    "react-toastify": "^7.0.4"
   }
 }

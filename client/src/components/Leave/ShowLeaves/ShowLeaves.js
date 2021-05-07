@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import { withRouter } from 'react-router';
 import Leave from './LeaveCard/LeaveCard';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 const Notification = (props) => {
     const [leaves, setLeaves] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,15 +17,15 @@ const Notification = (props) => {
             .catch(error => {
                 props.history.push('/');
             })
-    }, [leaves])
+    }, [])
     const renderingLeaves = leaves.map((el, id) => {
-        return el.status == "pending" ? <Leave setLeaves = {() => setLeaves()} data={el} key={id} /> : null;
-    }
-    );
+        return el.status === "pending" ? <Leave setLeaves={() => setLeaves()} data={el} key={id} /> : null;
+    });
+    
     return (
-        <div>
+        <>
             {renderingLeaves}
-        </div>
+        </>
     )
 }
 export default withRouter(Notification);

@@ -56,9 +56,9 @@ export const markLeave = (req, res) => {
                 leaveData.date = await tempData;
                 // console.log(leaveData)
                 let found = employee.attendance.find(year => {
-                    return +year.value == leaveData.date.year
+                    return +year.value === leaveData.date.year
                 });
-                if (found == undefined) {
+                if (found === undefined) {
                     let date = new Array(32);
                     date[+leaveData.date.date] = {
                         "isLeave": true

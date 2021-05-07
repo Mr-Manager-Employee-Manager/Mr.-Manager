@@ -4,12 +4,37 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { markLeave } from '../../../../api/leave';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Leave = (props) => {
     const [empName,setEmpName]=useState("");
 
     const acceptHandler = () => {
         markLeave(props.data);
+        toast.success('Request Allowed', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        console.log("leave marked yeah");
+    }
+
+    const declineHandler = () => {
+        markLeave(props.data);
+        toast.error('Request Declined', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
         console.log("leave marked yeah");
     }
 
@@ -29,7 +54,7 @@ const Leave = (props) => {
                         </Col>
                         <Col>
                             <Button onClick = {() => acceptHandler()} style={{width:"70%",marginLeft:"29%"}}  variant="outline-success" block>Allow</Button>
-                            <Button  style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
+                            <Button onClick = {() => declineHandler()} style={{width:"70%",marginLeft:"29%"}} variant="outline-danger" block>Decline</Button>
                         </Col>
                     </Row>
                     
