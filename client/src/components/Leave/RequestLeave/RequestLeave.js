@@ -67,7 +67,7 @@ const Log = (props) => {
             "id":props.match.params.id,
             "days": leaveDays,
             "reason": reason,
-            "name":props.location.res.data.name
+            "name":localStorage.getItem('empName')
         }
         console.log("in");
         // console.log(leaveData);

@@ -53,10 +53,11 @@ const App = () => {
                 <Switch>
                     {/* <Route exact path='/' component={Home} /> */}
                     <Route exact path="/about" component={About} />
+                    <Route exact path="/empLogin" render={() => <EmpLogin />} />
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
                     <Route exact path='/:id/leave' component={Leave} />
-                    <Redirect to={'/employees/' + localStorage.getItem('username')}  />
+                    <Redirect to='/empLogin' />;
                 </Switch>
             );
         }
