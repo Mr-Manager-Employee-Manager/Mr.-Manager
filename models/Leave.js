@@ -10,7 +10,8 @@ const leaveSchema = new mongoose.Schema({
     },
     id:String,
     days: Number,
-    reason: String
+    reason: String,
+    name:String
 });
 
 const leaveModel = mongoose.model('leaveModel',leaveSchema);

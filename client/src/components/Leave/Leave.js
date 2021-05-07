@@ -67,7 +67,8 @@ const Log = (props) => {
             "date": data,
             "id":props.match.params.id,
             "days": leaveDays,
-            "reason": reason
+            "reason": reason,
+            "name":props.location.res.data.name
         }
         // const arr = new Array();
         // for (let i = 1; i <= leaveDays; i++) {

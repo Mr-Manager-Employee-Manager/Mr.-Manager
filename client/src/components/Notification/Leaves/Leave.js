@@ -12,7 +12,7 @@ const Leave = (props) => {
     return (
         <div>
             <Card>
-                <Card.Header as="h5">{props.data.empCd}</Card.Header>
+                <Card.Header as="h5">{props.data.name}</Card.Header>
                 <Card.Body>
                 <Row>
                     <Card.Title style={{marginLeft:"10px"}}><strong>Reason: </strong></Card.Title>
