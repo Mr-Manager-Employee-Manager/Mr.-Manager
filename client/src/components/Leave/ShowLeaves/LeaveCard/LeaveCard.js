@@ -41,9 +41,9 @@ const Leave = (props) => {
         });
         console.log("leave marked yeah");
     }
-    let buttons = (<div>
-        <Button onClick={() => declineHandler()} style={{width: "100%",  marginTop:"10px" }} variant="outline-danger" block><strong>Decline</strong></Button>
+    let buttons = (<div>        
         < Button onClick={() => acceptHandler()} style={{width: "100%", marginTop:"10px" }} variant="outline-success" block ><strong>Accept</strong></Button >
+        <Button onClick={() => declineHandler()} style={{width: "100%",  marginTop:"10px" }} variant="outline-danger" block><strong>Decline</strong></Button>
     </div>);
     if (status !== "pending") {
         buttons = <Button style={{ width:"100%", marginTop:"10px", cursor: "not-allowed" }} variant="secondary" block disabled > {status}</Button >
@@ -55,7 +55,7 @@ const Leave = (props) => {
                 <Card.Body style={{background:"#f2f2f2"}}>
                 <Row>
                 <Col sm={12} md={9}>
-                        <Card.Title style={{ marginLeft: "10px",width:"50%" }}><strong>Reason: </strong></Card.Title>
+                        <Card.Title style={{ width:"50%" }}><strong>Reason: </strong></Card.Title>
                             <Card.Text>
                                 {props.data.reason}
                             </Card.Text>

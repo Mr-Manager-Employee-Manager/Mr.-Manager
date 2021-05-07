@@ -52,7 +52,7 @@ const FORM = (props) => {
         <h3 className={classes.head}>Register</h3>
         <Form className={classes.RegisterForm} onSubmit={(e) => register(e)} >
           <Col>
-            <Row>
+            <Row style = {{marginBottom: "10px"}}>
               <Form.Label>Company's Username</Form.Label>
               <Form.Control required onChange={(event) => setRegisterUsername(event.target.value)} />
             </Row>

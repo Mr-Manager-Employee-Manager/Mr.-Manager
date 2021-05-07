@@ -69,6 +69,7 @@ export const markLeave = (req, res) => {
                 }
                 if (tempData["month"] > 12) {
                     tempData["month"] = 1;
+                    tempData["year"]++;
                 }
                 const leaveData = await { ...leaveDataOrg };
                 leaveData.date = await tempData;

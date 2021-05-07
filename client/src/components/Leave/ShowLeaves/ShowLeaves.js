@@ -22,9 +22,9 @@ const Notification = (props) => {
         return el.status === "pending" ? <Leave setLeaves={() => setLeaves()} data={el} key={id} /> : null;
     });
     return (
-        <>
+        <div style = {{marginTop: "90px"}}>
             {renderingLeaves}
-        </>
+        </div>
     )
 }
 export default withRouter(Notification);

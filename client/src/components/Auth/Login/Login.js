@@ -48,7 +48,7 @@ const FORM = (props) => {
         <h3 className={classes.head}>Login</h3>
         <Form className={classes.addForm} onSubmit={(e) => login(e)} >
           <Col>
-            <Row>
+            <Row style = {{marginBottom: "10px"}}>
               <Form.Label>Company's Username</Form.Label>
               <Form.Control required onChange={(event) => setLoginUsername(event.target.value)} />
             </Row>
