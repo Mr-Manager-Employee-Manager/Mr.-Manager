@@ -14,11 +14,6 @@ export const getLeaves = (req, res) => {
     }).catch(err => {
         console.log(err);
     })
-
-    // const newLeaveRequest = new Leave(leaveReq);
-    // newLeaveRequest.save()
-    //     .then(() => res.json(leaveReq))
-    //     .catch(err => res.status(400).json('Error: ' + err));
 }
 
 export const declineLeave = (req, res) => {
