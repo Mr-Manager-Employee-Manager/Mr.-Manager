@@ -22,14 +22,15 @@ const Post = (props) => {
     useEffect(() => {
         axios.get('/employees/' + props.match.params.id).then(res => {
             setLoading(false);
-           localStorage.setItem('empName',res.data.name);
+            if (!localStorage.getItem('isAdmin'))
+                localStorage.setItem('empName', res.data.name);
             setEmployees(res.data);
 
         })
             .catch(error => {
                 props.history.push('/');
             })
-            // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [])
     const [showDelete, setShowDelete] = useState(false);
     const props2 = employees;
@@ -63,7 +64,7 @@ const Post = (props) => {
         </div>
 
         <hr></hr>
-        <Button variant="info" block onClick={() => deletePost(props2._id,props)}>Yes</Button>
+        <Button variant="info" block onClick={() => deletePost(props2._id, props)}>Yes</Button>
         <Button variant="danger" block onClick={() => setShowDelete(false)}>No</Button>
     </Modal> : null;
 
@@ -74,34 +75,34 @@ const Post = (props) => {
         width={150}
 
     /></div> : <div style={{ margin: "auto 20px" }}>
-            <Row>
-                <Col lg={9} sm={12}>
-                    <Card text="dark" className={classes.emp}>
-                        <Card.Body>
-                            <Card.Title><div style={{ fontSize: "xx-large", color: "#283747" }}><b>{props2.name}</b></div></Card.Title>
-                            <hr style={{ border: "2px solid black" }}></hr>
-                            <Card.Text>
-                                <span className={classes.divs}>EmpCd </span>:<span className={classes.divs}>{props2.empCd}</span>
-                                <span className={classes.divs}>Designation </span>:<span className={classes.divs}>{props2.designation}</span>
-                                <span className={classes.divs}>Department </span>:<span className={classes.divs}>{props2.dept}</span>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col lg={3} sm={12}>
-                    <Card bg="light" className={classes.emp} style={{ marginTop: "50px", padding: "30px" }}>
-                        {localStorage.getItem('isAdmin') === "true" ? <Button size="lg" block variant="info" onClick={editHandler}>Edit</Button> : null}
-                        {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
-                        <Button size="lg" block variant="info" onClick={attendanceHandler}>View Attendance</Button>
-                        {localStorage.getItem('empID') ? <Button size="lg" block variant="info" onClick={leaveHandler}>Request Leave</Button> : null}
-                        {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
-                        {localStorage.getItem('isAdmin') === "true" ? <Button size="lg" block variant="info" onClick={() => setShowDelete(true)}>Delete</Button> : null}
-                    </Card>
-                </Col>
-            </Row>
-            {deleteModal}
-        </div>
-        return (
+        <Row>
+            <Col lg={9} sm={12}>
+                <Card text="dark" className={classes.emp}>
+                    <Card.Body>
+                        <Card.Title><div style={{ fontSize: "xx-large", color: "#283747" }}><b>{props2.name}</b></div></Card.Title>
+                        <hr style={{ border: "2px solid black" }}></hr>
+                        <Card.Text>
+                            <span className={classes.divs}>EmpCd </span>:<span className={classes.divs}>{props2.empCd}</span>
+                            <span className={classes.divs}>Designation </span>:<span className={classes.divs}>{props2.designation}</span>
+                            <span className={classes.divs}>Department </span>:<span className={classes.divs}>{props2.dept}</span>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Col>
+            <Col lg={3} sm={12}>
+                <Card bg="light" className={classes.emp} style={{ marginTop: "50px", padding: "30px" }}>
+                    {localStorage.getItem('isAdmin') === "true" ? <Button size="lg" block variant="info" onClick={editHandler}>Edit</Button> : null}
+                    {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
+                    <Button size="lg" block variant="info" onClick={attendanceHandler}>View Attendance</Button>
+                    {localStorage.getItem('empID') ? <Button size="lg" block variant="info" onClick={leaveHandler}>Request Leave</Button> : null}
+                    {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
+                    {localStorage.getItem('isAdmin') === "true" ? <Button size="lg" block variant="info" onClick={() => setShowDelete(true)}>Delete</Button> : null}
+                </Card>
+            </Col>
+        </Row>
+        {deleteModal}
+    </div>
+    return (
         <div>
             {renderProfile}
         </div>

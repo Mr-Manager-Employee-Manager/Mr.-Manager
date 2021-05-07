@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from "react-bootstrap/Nav";
 import { Link } from 'react-router-dom';
 import classes from "./Navbar.module.css";
+import Badge from 'react-bootstrap/Badge'
 
-const navbar = (props) => {
+const NAvbar = (props) => {
 
+    const [leaves, setLeaves] = useState(0);
+    useEffect(() => {
+        axios.get('leaves/' + localStorage.getItem('username')).then(res => {
+            let cnt=0;
+            for(let i in res.data)
+            {
+                if(res.data[i].status==="pending") cnt++;
+            }
+            setLeaves(cnt);
+        })
+            .catch(error => {
+                props.history.push('/');
+            })
+    }, [])
     const logoutHandler = () => {
         axios.get('/logout').then(() => {
             localStorage.removeItem('username');
@@ -18,7 +33,7 @@ const navbar = (props) => {
             props.history.push('/');
         })
     }
-
+    
     let authStatus = (
         <div style={{ fontSize: "1.2rem" }}>
             <Nav className = {classes.reglog} style = {{marginRight: "12px"}}>
@@ -58,7 +73,7 @@ const navbar = (props) => {
                         <Link to='/about' className = {classes.button}>Developers</Link>
                     </Nav.Link> */}
                     {localStorage.getItem('isAdmin')==='true' ? <Nav.Link style = {{padding: "0px", marginRight: "15px"}}>
-                        <Link to='/leaves' className = {classes.button}>Leaves</Link>
+                        <Link to={{pathname:'/leaves', setNo:setLeaves}} className = {classes.button}><i onClick={()=>setLeaves("")} class="fas fa-bell" alt="Notifications"></i><Badge style={{marginLeft:"5px"}} variant="info">{leaves}</Badge></Link>
                     </Nav.Link>:null}
                     {authStatus}
 
@@ -69,5 +84,5 @@ const navbar = (props) => {
     );
 }
 
-export default withRouter(navbar);
+export default withRouter(NAvbar);
 
