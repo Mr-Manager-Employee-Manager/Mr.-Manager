@@ -17,7 +17,7 @@ const NAvbar = (props) => {
             {
                 if(res.data[i].status==="pending") cnt++;
             }
-            setLeaves(cnt);
+            setLeaves(cnt+" Leaves");
         })
             .catch(error => {
                 props.history.push('/');
