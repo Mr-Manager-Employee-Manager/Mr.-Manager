@@ -55,6 +55,13 @@ const Post = (props) => {
             res: { data: props2 }
         })
     }
+    const markedLeaveHandler = () => {
+        const url = "/markedLeave";
+        props.history.push({
+            pathname: url,
+            res: { data: props2 }
+        })
+    }
     const deleteCancelHandler = () => {
         setShowDelete(false);
     }
@@ -95,6 +102,7 @@ const Post = (props) => {
                     {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
                     <Button size="lg" block variant="info" onClick={attendanceHandler}>View Attendance</Button>
                     {localStorage.getItem('empID') ? <Button size="lg" block variant="info" onClick={leaveHandler}>Request Leave</Button> : null}
+                    {localStorage.getItem('empID') ? <Button size="lg" block variant="info" onClick={markedLeaveHandler}>My Leaves</Button> : null}
                     {localStorage.getItem('isAdmin') === "true" ? <br></br> : null}
                     {localStorage.getItem('isAdmin') === "true" ? <Button size="lg" block variant="info" onClick={() => setShowDelete(true)}>Delete</Button> : null}
                 </Card>

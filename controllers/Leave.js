@@ -16,6 +16,14 @@ export const getLeaves = (req, res) => {
     })
 }
 
+export const getMarkedLeaves = (req, res) => {
+    Leave.find(req.body).then(leaves => {
+        res.status(200).json(leaves);
+    }).catch(err => {
+        console.log(err);
+    })
+}
+
 export const declineLeave = (req, res) => {
     const leaveDataOrg = req.body;
     leaveDataOrg.status = "declined";

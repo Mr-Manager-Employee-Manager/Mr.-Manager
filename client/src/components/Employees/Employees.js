@@ -19,15 +19,18 @@ const Posts = (props) => {
     const [show, setShow] = useState(true);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+        console.log("in");
         const initializeData = (data) => {
-            setEmployees(data);
-            setLoading(false);
+            if (data.length !== employees.length) {
+                setEmployees(data);
+                setLoading(false);
+            }
         }
         const filter = {
             "username": localStorage.getItem('username')
         }
         fetchPosts(filter, initializeData)
-    }, [])
+    }, [employees])
 
     const posts = employees.map((ele, index) => (
         <Post id={ele._id} attendence={ele.attendance}
@@ -51,7 +54,7 @@ const Posts = (props) => {
     if (props.location.data === "Attendance Logged!") {
         alerts = <Alert show={show} variant="success" onClose={() => setShow(false)} dismissible >{props.location.data}</Alert>
     }
-    else if(props.location.data === "Employee is on leave this day")
+    else if (props.location.data === "Employee is on leave this day")
         alerts = <Alert show={show} variant="danger" onClose={() => setShow(false)} dismissible >{props.location.data}</Alert>
     return (
         <div style={{ margin: "0" }}>

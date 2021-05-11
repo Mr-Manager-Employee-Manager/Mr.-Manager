@@ -23,20 +23,9 @@ export const loginUser = (req, res, err) => {
 export const empLogin = (req, res, err) => {
 	Employee.find(req.body)
 	.then(employee => {
-		console.log(employee);
 		res.status(200).json(employee[0].id);
 	})
 	.catch(err => res.status(400).json('Error:' + err));
-	// User.find(id)
-	// 	.then(factoryID => {
-	// 		console.log(factoryID);
-
-	// 		res.status(200).json(factoryID);
-	// 	})
-	// 	.catch(err => {
-	// 		console.log("error0");
-	// 		res.status(400).json('Error:' + err)
-	// 	});
 }
 
 

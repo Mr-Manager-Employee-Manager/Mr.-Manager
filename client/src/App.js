@@ -14,6 +14,7 @@ import Alert from 'react-bootstrap/Alert';
 import About from './components/About us/About';
 import EmpLogin from './components/Auth/EmployeeLogin/EmpLogin';
 import Leave from './components/Leave/RequestLeave/RequestLeave';
+import MarkedLeave from './components/Leave/MarkedLeave/MarkedLeave';
 import Notification from './components/Leave/ShowLeaves/ShowLeaves';
 
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
                     <Route exact path='/:id/attendance/view' component={ViewAttendance} />
                     <Route exact path='/employees/:id' component={Profile} />
                     <Route exact path='/:id/leave' component={Leave} />
+                    <Route exact path='/markedLeave' component={MarkedLeave} />
                     <Redirect to={'/employees/'+localStorage.getItem('emp_id')} />;
                 </Switch>
             );

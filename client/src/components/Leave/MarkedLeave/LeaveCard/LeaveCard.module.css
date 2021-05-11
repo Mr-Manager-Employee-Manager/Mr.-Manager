@@ -1,0 +1,19 @@
+.posts{
+    width: 70%;
+    margin: 30px 15%;
+    /* background-color: rgb(234, 240, 240); */
+    background-color: #e1e6f5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.footer2{
+    float:right;
+}
+@media only screen and (max-width: 500px) {
+    .footer1{
+        margin-right: 40px;
+    }
+    .footer2{
+        float: left;
+        margin:0 auto;
+    }
+  }
